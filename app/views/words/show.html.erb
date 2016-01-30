@@ -1,0 +1,5 @@
+<h1><%= @word %></h1>
+<p>
+  <%= @definition %>
+</p>
+<%= link_to "Add word", save_word_path(@word), method: :put %>

@@ -1,5 +1,8 @@
 Vocabulate::Application.routes.draw do
 
+  devise_for :users
+  get ":word", to: "words#show"
+  put ":word/save", to: "words#save", as: "save_word"
   root 'static_pages#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
