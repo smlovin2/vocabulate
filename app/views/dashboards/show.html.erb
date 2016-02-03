@@ -1,1 +1,7 @@
 <h2>My Dashboard</h2>
+<% current_user.words.each do |word| %>
+  <h3><%= word.word %></h3> -
+  <p>
+    <%= word.definition %>
+  </p>
+<% end %>
