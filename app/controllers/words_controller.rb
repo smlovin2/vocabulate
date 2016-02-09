@@ -1,8 +1,15 @@
 class WordsController < ApplicationController
   before_action :authenticate_user!, only: [:save]
+
+  def index
+    if params[:search]
+      @words = Wordnik.words.search_words(query: params[:search])
+    end
+  end
+
   def show
     @word = word_param
-    @definition = "Something you can eat."
+    @definition = Wordnik.word.get_definitions(@word)[0]["text"]
   end
 
   def save

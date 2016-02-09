@@ -1,0 +1,8 @@
+<h1>Words!</h1>
+
+
+<% @words.each do |word| %>
+  <div class="word-box">
+    <h3><%= link_to word["wordstring"], word_path(word["wordstring"]) %></h3>
+  </div>
+<% end %>

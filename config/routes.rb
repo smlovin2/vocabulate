@@ -2,7 +2,8 @@ Vocabulate::Application.routes.draw do
 
   devise_for :users
   resource :dashboard, only: [:show]
-  get ":word", to: "words#show"
+  get "words", to: "words#index", as: "words"
+  get ":word", to: "words#show", as: :word
   put ":word/save", to: "words#save", as: "save_word"
   root 'static_pages#index'
 

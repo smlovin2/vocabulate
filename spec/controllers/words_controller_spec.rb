@@ -2,11 +2,40 @@ require 'rails_helper'
 
 RSpec.describe WordsController, type: :controller do
 
-  describe "GET #show" do
+  describe "words#show" do
     it "returns http success" do
       get :show, word: "food"
       expect(response).to have_http_status(:success)
     end
+
+    it "assigns :word to @word" do
+      get :show, word: "food"
+      expect(assigns(:word)).to eq("food")
+    end
+
+    it "assigns a definition for :word to @definition" do
+      get :show, word: "dog"
+      expect(assigns(:definition)).to eq("A domesticated carnivorous mammal (Canis familiaris) related to the foxes and wolves and raised in a wide variety of breeds.")
+    end
+  end
+
+  describe "words#index" do
+    it "should successfully return success" do
+      get :index
+      expect(response).to have_http_status(:success)
+    end
+
+    # it "assigns @words all words in database if not searching" do
+    #   FactoryGirl.create(:word)
+    #   get :index
+    #   expect(assigns(:words)).to eq(Word.all)
+    # end
+
+    it "assigns a value to @words after search" do
+      get :index, search: "dog"
+      expect(assigns(:words)).to_not eq(nil)
+    end
+
   end
 
   describe "words#save" do
