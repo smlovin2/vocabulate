@@ -2,7 +2,7 @@
   <%= link_to "Add", save_word_path(@word, definition: @definition), method: :put, class: "btn btn-success" %>
 
   <h1><%= @word %></h1>
-  <h3><%= @pronunciation[0]["raw"] %></h3>
+  <h3 id="pronunciation"><%= @pronunciation[0]["raw"] %></h3>
     <% @definition.each do |definition| %>
       <i><%= definition["partOfSpeech"] %></i>
       <p>
