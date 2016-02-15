@@ -1,7 +1,22 @@
-<h2>My Dashboard</h2>
-<% current_user.words.each do |word| %>
-  <h3><%= word.word %></h3> -
-  <p>
-    <%= word.definition %>
-  </p>
-<% end %>
+<div class="header col-xs-6 col-xs-offset-3">
+  <h1>My Dashboard</h1>
+</div>
+
+<div class="user-info booyah-box col-xs-8 col-xs-offset-2">
+  <div class="profile">
+    <%= image_tag "GenericUser.png" %>
+  </div>
+  <div class="words-learned">
+    <h3>Number of Words Learned</h3>
+  </div>
+</div>
+
+<div class="current-words booyah-box col-xs-8 col-xs-offset-2">
+  <h1>Current Words</h1>
+  <% current_user.words.each do |word| %>
+    <h3><%= word.word %></h3> -
+    <p>
+      <%= word.definition %>
+    </p>
+  <% end %>
+</div>

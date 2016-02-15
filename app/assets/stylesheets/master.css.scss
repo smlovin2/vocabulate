@@ -1,0 +1,88 @@
+body {
+  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+
+  background-color: #eeeeee;
+}
+
+.booyah-box {
+  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  border: 1px solid #ccc;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  padding: 20px;
+  background: #fff;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.btn {
+  border-radius: 0px;
+}
+
+.booyah-box h2, .booyah-box h1 {
+  margin-bottom: 20px;
+}
+
+.header {
+  text-align: center;
+  border-bottom: 1px solid #999;
+  margin-top: 20px;
+}
+
+.navbar-inverse .navbar-brand {
+  color: white;
+  font-family: 'lobster_1.3regular';
+  font-size: 36px;
+}
+
+.hero {
+  background: url('hero.jpg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 600px;
+  box-shadow: 0px 3px 8px #2a2a2a;
+  margin-bottom: 20px;
+}
+.frosty {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  margin-top: 10%;
+}
+.frosty h1 {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 100;
+  text-shadow: rgba(0,0,0,0.95) 1px, 1px;
+  margin-top: 10px;
+}
+.frosty h2 {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 200;
+  text-shadow: rgba(0,0,0,0.95) 1px 1px;
+}
+
+.frosty a {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.feature-icon {
+  font-size: 100px;
+}
+.features b {
+  font-size: 20px;
+  display: block;
+}
+.features p {
+  font-size: 15px;
+}
+
+.navbar {
+  border-radius: 0px;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar {
+  margin: 0;
+}

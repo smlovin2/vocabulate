@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe "words/show.html.erb", type: :view do
   it "shows @word" do
     assign(:word, "dog")
+    assign(:definition, [{"partOfSpeech" => "noun", "text" => "A fun animal"}])
     render
 
     expect(rendered).to include("dog")
@@ -10,7 +11,7 @@ RSpec.describe "words/show.html.erb", type: :view do
 
   it "shows @definition" do
     assign(:word, "dog")
-    assign(:definition, "A fun animal")
+    assign(:definition, [{"partOfSpeech" => "noun", "text" => "A fun animal"}])
     render
 
     expect(rendered).to include("A fun animal")

@@ -3,13 +3,15 @@ class WordsController < ApplicationController
 
   def index
     if params[:search]
-      @words = Wordnik.words.search_words(query: params[:search])
+      @words = Wordnik.words.search_words(query: params[:search], case_sensitive: false)
+      @definitions = get_definitions
     end
   end
 
   def show
     @word = word_param
-    @definition = Wordnik.word.get_definitions(@word)[0]["text"]
+    @definition = definition_param
+    @pronunciation = Wordnik.word.get_text_pronunciations(@word)
   end
 
   def save
@@ -25,5 +27,13 @@ class WordsController < ApplicationController
 
   def definition_param
     params.require(:definition)
+  end
+
+  def get_definitions
+    defintions = {}
+    @words.each do |word|
+      defintions[word["wordstring"]] =  Wordnik.word.get_definitions(word["wordstring"])
+    end
+    defintions
   end
 end

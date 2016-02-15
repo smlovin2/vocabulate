@@ -1,3 +1,16 @@
 // Place all the styles related to the dashboards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.words-learned, .profile {
+  float: left;
+}
+
+.words-learned {
+  padding-left: 30px;
+}
+
+.current-words h1 {
+  text-align: center;
+  color: #666;
+  border-bottom: 1px solid #999;
+}

@@ -1,5 +1,12 @@
-<h1><%= @word %></h1>
-<p>
-  <%= @definition %>
-</p>
-<%= link_to "Add word", save_word_path(@word, definition: @definition), method: :put, class: "btn btn-primary" %>
+<div class="words-box booyah-box col-xs-10 col-xs-offset-1">
+  <%= link_to "Add", save_word_path(@word, definition: @definition), method: :put, class: "btn btn-success" %>
+
+  <h1><%= @word %></h1>
+  <h3><%= @pronunciation[0]["raw"] %></h3>
+    <% @definition.each do |definition| %>
+      <i><%= definition["partOfSpeech"] %></i>
+      <p>
+        <%= definition["text"] %>
+      </p>
+    <% end %>
+</div>

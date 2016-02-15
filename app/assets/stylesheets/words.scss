@@ -1,3 +1,28 @@
 // Place all the styles related to the words controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.words-box {
+  h1 {
+  }
+
+  p {
+    padding-left: 20px;
+  }
+
+  a {
+    color: #41454f;
+  }
+
+  a.btn {
+    color: #fff;
+    float: right;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+    font-size: 17px;
+    padding: 3px 40px;
+  }
+
+}
+
+.index-header {
+  border-top: 1px solid #999;
+}

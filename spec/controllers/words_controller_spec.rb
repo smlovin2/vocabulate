@@ -4,18 +4,23 @@ RSpec.describe WordsController, type: :controller do
 
   describe "words#show" do
     it "returns http success" do
-      get :show, word: "food"
+      get :show, word: "food", definition: [{"text" => "A domesticated carnivorous mammal (Canis familiaris) related to the foxes and wolves and raised in a wide variety of breeds."}]
       expect(response).to have_http_status(:success)
     end
 
     it "assigns :word to @word" do
-      get :show, word: "food"
+      get :show, word: "food", definition: [{"text" => "A domesticated carnivorous mammal (Canis familiaris) related to the foxes and wolves and raised in a wide variety of breeds."}]
       expect(assigns(:word)).to eq("food")
     end
 
     it "assigns a definition for :word to @definition" do
-      get :show, word: "dog"
-      expect(assigns(:definition)).to eq("A domesticated carnivorous mammal (Canis familiaris) related to the foxes and wolves and raised in a wide variety of breeds.")
+      get :show, word: "dog", definition: [{"text" => "A domesticated carnivorous mammal (Canis familiaris) related to the foxes and wolves and raised in a wide variety of breeds."}]
+      expect(assigns(:definition)[0]["text"]).to eq("A domesticated carnivorous mammal (Canis familiaris) related to the foxes and wolves and raised in a wide variety of breeds.")
+    end
+
+    it "assigns a pronunciation for :word to @pronunciation" do
+      get :show, word: "sincere", definition: [{"text" => "Not feigned or affected; genuine:  sincere indignation. "}]
+      expect(assigns(:pronunciation)[0]["raw"]).to eq("(sĭn-sîrˈ)")
     end
   end
 
@@ -25,11 +30,10 @@ RSpec.describe WordsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
 
-    # it "assigns @words all words in database if not searching" do
-    #   FactoryGirl.create(:word)
-    #   get :index
-    #   expect(assigns(:words)).to eq(Word.all)
-    # end
+    it "assigns defintions for all the words" do
+      get :index, search: "dog"
+      expect(assigns(:definitions)["dog"][0]["text"]).to eq("A domesticated carnivorous mammal (Canis familiaris) related to the foxes and wolves and raised in a wide variety of breeds.")
+    end
 
     it "assigns a value to @words after search" do
       get :index, search: "dog"

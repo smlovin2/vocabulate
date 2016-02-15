@@ -1,8 +1,12 @@
-<h1>Words!</h1>
-
-
 <% @words.each do |word| %>
-  <div class="word-box">
-    <h3><%= link_to word["wordstring"], word_path(word["wordstring"]) %></h3>
+  <div class="words-box booyah-box col-xs-10 col-xs-offset-1">
+    <h1><%= link_to word["wordstring"], word_path(word["wordstring"], definition: @definitions[word["wordstring"]]) %></h1>
+    <p>
+      <%= show_definition_if_there_is_one(@definitions[word["wordstring"]]) %>
+    </p>
   </div>
 <% end %>
+
+<div class="index-header col-xs-10 col-xs-offset-1">
+  <h1>Similar Words</h1>
+</div>
