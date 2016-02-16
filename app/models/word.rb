@@ -1,3 +1,4 @@
 class Word < ActiveRecord::Base
-  belongs_to :user
+  has_many :word_lists
+  has_many :users, through: :word_lists
 end

@@ -12,6 +12,13 @@ class WordsController < ApplicationController
     @word = word_param
     @definition = definition_param
     @pronunciation = Wordnik.word.get_text_pronunciations(@word)
+    @synonyms = Wordnik.word.get_related_words(@word).find {|info| info['relationshipType'] == 'synonym'}
+
+    if @synonyms.nil?
+      @synonyms = []
+    else
+      @synonyms = @synonyms['words']
+    end
   end
 
   def save

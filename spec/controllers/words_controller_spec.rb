@@ -22,6 +22,11 @@ RSpec.describe WordsController, type: :controller do
       get :show, word: "sincere", definition: [{"text" => "Not feigned or affected; genuine:  sincere indignation. "}]
       expect(assigns(:pronunciation)[0]["raw"]).to eq("(sĭn-sîrˈ)")
     end
+
+    it "assigns synonyms for :word to @synonyms" do
+      get :show, word: "sincere", definition: [{"text" => "Not feigned or affected; genuine:  sincere indignation. "}]
+      expect(assigns(:synonyms)).to eq(["upright", "unvarnished", "real", "frank", "inartificial", "true", "unfeigned", "unaffected", "honest", "hearty"])
+    end
   end
 
   describe "words#index" do
@@ -58,7 +63,7 @@ RSpec.describe WordsController, type: :controller do
       word = Word.last
       expect(word.word).to eq("Food")
       expect(word.definition).to eq("Something you eat.")
-      expect(word.user).to eq(user)
+      expect(word.users.include?(user)).to eq(true)
     end
   end
 
