@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :word_list do
+  factory :definition do
     
   end
 end
