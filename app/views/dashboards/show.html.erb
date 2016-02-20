@@ -13,10 +13,10 @@
 
 <div class="current-words booyah-box col-xs-8 col-xs-offset-2">
   <h1>Current Words</h1>
-  <% current_user.words.each do |word| %>
-    <h3><%= link_to word.word, word_path(word.word, definition: word.definition) %></h3> -
+  <% current_user.current_list.words.each do |word| %>
+    <h3><%= link_to word.word, word_path(word.word) %></h3> -
     <p>
-      <%= word.definition %>
+      <%= word.definitions.first.text %>
     </p>
   <% end %>
 </div>

@@ -5,4 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :word_lists
+
+  def current_list
+    word_lists.each do |list|
+      return list if list.current_list
+    end
+    nil
+  end
 end

@@ -1,6 +1,6 @@
 <% @words.each do |word| %>
   <div class="words-box booyah-box col-xs-10 col-xs-offset-1">
-    <h1><%= link_to word["wordstring"], word_path(word["wordstring"], definition: @definitions[word["wordstring"]]) %></h1>
+    <h1><%= link_to word["wordstring"], word_path(word["wordstring"]) %></h1>
     <p>
       <%= show_definition_if_there_is_one(@definitions[word["wordstring"]]) %>
     </p>
